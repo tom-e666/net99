@@ -1,4 +1,4 @@
-﻿@model IQueryable<Product>
+﻿@model ProductListViewModel
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -9,13 +9,14 @@
         <th>Description</th>
     </tr>
 
-@foreach (var e in Model)
-{
-    
-    <tr>
-        <td>@e.Name</td>
-        <td>@e.Price</td>
-        <td>@e.Description</td>
-    </tr>
-}
+    @foreach (var e in Model.Products)
+    {
+        <tr>
+            <td>@e.Name</td>
+            <td>@e.Price</td>
+            <td>@e.Description</td>
+        </tr>
+    }
 </table>
+
+<div page-model="@Model.PagingInfo" page-action="Index"></div>

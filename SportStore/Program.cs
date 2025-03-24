@@ -23,7 +23,8 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 SeedData.EnsurePopulated(app);
-
+app.MapControllerRoute("pagination", "Products/Page{productPage}",
+    new{Controller = "Home", action = "Index"});
 app.UseHttpsRedirection();
 app.UseRouting();
 
